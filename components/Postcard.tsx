@@ -14,7 +14,7 @@ const Postcard = ({posts}: Props) => {
           <img
             src={posts.node.image.url}
             alt={posts.tittle}
-            className="object-top absolute h-80 w-full object-cover rounded-t-md"
+            className="object-top absolute h-80 w-full object-cover rounded-t-md text-white   "
           />
         </div>
     </div>
