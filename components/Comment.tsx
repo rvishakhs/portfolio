@@ -1,6 +1,10 @@
 import React from 'react'
 
-function Comment() {
+interface Props {
+    slug : string
+}
+
+function Comment({slug}: Props) {
   return (
     <div>Comment</div>
   )

@@ -1,6 +1,10 @@
 import React from 'react'
 
-function CommentForms() {
+interface Props {
+    slug : string
+}
+
+function CommentForms({slug}: Props) {
   return (
     <div>CommentForms</div>
   )

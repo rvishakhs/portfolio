@@ -1,6 +1,10 @@
 import React from 'react'
 
-function Postdetails() {
+interface Props {
+    post : any
+}
+
+function Postdetails({post}: Props) {
   return (
     <div>Postdetails</div>
   )

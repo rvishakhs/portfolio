@@ -1,6 +1,10 @@
 import React from 'react'
 
-function Author() {
+interface Props {
+    author : any
+}
+
+function Author({author}: Props) {
   return (
     <div>Author</div>
   )

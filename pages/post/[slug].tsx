@@ -6,24 +6,38 @@ import CommentForms from '../../components/CommentForms'
 import Header from '../../components/Header'
 import Postdetails from '../../components/Postdetails'
 import Postwidget from '../../components/Postwidget'
-import { getPosts } from '../../services'
+import { getDetailedPosts, getPostDetails, getPosts } from '../../services'
 
-const PostDetails = () => {
+interface Props {
+  params : any
+  post : any
+  node : any
+}
+
+
+
+const PostDetails = ({post }: Props) => {
+
+
+  console.log(post);
+  
+
   return (
+
     
     <div className="container mx-auto px-10 mb-8">
       <Header />
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-1'>
         <div className='lg:col-span-8 col-span-1'>
-          <Postdetails  />
-          <Author />
-          <CommentForms />
-          <Comment />
+          <Postdetails post={post} />
+          <Author author={post.author}/>
+          <CommentForms slug={post.slug} />
+          <Comment slug={post.slug}/>
 
         </div>
         <div className='lg:col-span-4 col-span-1 gap-y-2'>
             <div className='lg:sticky relative top-8'>
-              <Postwidget />
+              <Postwidget slug={post.slug} categories={post.categories.map((Category: any)=> Category.slug)} />
               <Categories />
             </div>
         </div>
@@ -37,10 +51,20 @@ const PostDetails = () => {
 
 export default PostDetails
 
-export async function getStaticProps() {
-  const posts = (await getPosts() || [])
+
+
+export async function getStaticProps({params}: Props) {
+  const data = await getPostDetails(params.slug)
 
   return {
-    props: {posts}
+    props: {post: data}
   }
+}
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return {
+    paths: posts.map(({ node: { slug } }: Props) => ({ params: { slug } })),
+    fallback: true,
+  };
 }
