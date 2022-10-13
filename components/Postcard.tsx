@@ -21,14 +21,13 @@ const Postcard = ({posts}: Props) => {
           />
         </div>
         <h1 className='transition duration-700 ease-out text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold'>
-            <Link href={`/posts/${posts.node.slug}`}>
+            <Link href={`/post/${posts.node.slug}`}>
               {posts.node.tittle}
             </Link>   
         </h1>
         <div className='flex text-center items-center justify-between mb-4 lg:mb-8 px-6 md:px-16 '>
             <div className='flex items-center space-x-4 md:justify-center '>
               <img 
-                alt={posts.node.author.author}
                 height="30px"
                 width="30px"
                 className='align-middle rounded-full'
@@ -41,10 +40,10 @@ const Postcard = ({posts}: Props) => {
               <span>{moment(posts.node.createdAt).format('MMM DD, YYYY')}</span>
             </div>
         </div>
-            <p className='text-justify px-4 md:px-8'>{posts.node.excerpt}</p>
+            <p className='text-justify px-4  line-clamp-3 md:line-clamp-5 md:px-8'>{posts.node.excerpt}</p>
         <div className='text-center mt-4'>
-          <Link href={`/posts/${posts.node.slug}`}>
-            <span className='border border-gray-400 px-3 py-3 rounded-2xl transition transform duration-500 hover:-translate-y-1 inline-block bg-pink-600 cursor-pointer'>
+          <Link href={`/post/${posts.node.slug}`}>
+            <span className='border border-gray-400 px-4 py-3 rounded-2xl transition transform duration-500 hover:-translate-y-1 inline-block bg-pink-600 cursor-pointer'>
               Countinue Reading 
             </span>
           </Link>

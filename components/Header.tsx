@@ -12,7 +12,7 @@ function Header() {
         {name: "Contact Us", slug:"contact"},
     ]
   return (
-    <div className='container mx-auto px-3 md:px-10 mb-8 '>
+    <div className='container  z-50 mx-auto px-3 md:px-10 mb-8 '>
         <div className='border-b flex flex-row justify-between w-full items-center border-blue-400 py-8'>
             <div className='flex flex-col items-center '>
                 <Link href="/">

@@ -15,7 +15,7 @@ interface Props {
 
 
 
-const Home: NextPage = ({posts}) => {
+const Home: NextPage = ({posts}:Props) => {
 
 
   console.log(posts);
@@ -35,7 +35,7 @@ const Home: NextPage = ({posts}) => {
             <Postcard key={post.tittle} posts={post}  />
           ))}
         </div>
-        <div className='lg:col-span-4 col-span-1'>
+        <div className='lg:col-span-4 col-span-1 gap-y-2'>
             <div className='lg:sticky relative top-8'>
               <Postwidget />
               <Categories />
