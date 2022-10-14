@@ -15,8 +15,6 @@ function Categories() {
 
   },[])
 
-  console.log(categories);
-  
 
   return (
     <div className='bg-white rounded-lg p-8 pb-12 mb-3 ml-2'>

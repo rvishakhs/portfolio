@@ -6,7 +6,7 @@ import CommentForms from '../../components/CommentForms'
 import Header from '../../components/Header'
 import Postdetails from '../../components/Postdetails'
 import Postwidget from '../../components/Postwidget'
-import { getDetailedPosts, getPostDetails, getPosts } from '../../services'
+import {  getPostDetails, getPosts } from '../../services'
 
 interface Props {
   params : any
