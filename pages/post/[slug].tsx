@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import React from 'react'
 import Author from '../../components/Author'
 import Categories from '../../components/Categories'
@@ -26,6 +27,11 @@ const PostDetails = ({post }: Props) => {
 
     
     <div className="container mx-auto px-5 mb-8">
+      <Head>
+        <title>{post.tittle}</title>
+        <link rel="icon" href="https://buddytraveler.com/wp-content/uploads/2021/03/Capture-e1615401034628.png" />
+      </Head>
+
       <Header />
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-1'>
         <div className='lg:col-span-8 col-span-1'>
