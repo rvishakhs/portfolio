@@ -137,7 +137,7 @@ export const getSimilarPosts = async (categories: string, slug: [string]) => {
   }
 
   export const submitComment = async (obj: any) => {
-    const result = await fetch('/api/comments', {
+    const result = await fetch('/api/comment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -147,4 +147,21 @@ export const getSimilarPosts = async (categories: string, slug: [string]) => {
   
     return result.json();
   };
+
+  export const getComments = async (slug: any) => {
+    const query = gql `
+        query GetComments($slug : String!){ 
+            comments (where: {post: {slug: $slug}}){
+                name
+                createdAt
+                comment
+            }
+        }
+    `;
+
+    const result = await request(graphqlAPI, query, {slug});
+  
+    return result.comments ;
+  }
+
   
