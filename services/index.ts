@@ -164,4 +164,44 @@ export const getSimilarPosts = async (categories: string, slug: [string]) => {
     return result.comments ;
   }
 
+
+  export const getCategoryPost = async (slug : string) => {
+    const query = gql`
+      query GetCategoryPost($slug: String!) {
+        postsConnection(where: {categories_some: {slug: $slug}}) {
+          edges {
+            cursor
+            node {
+              author{
+                author
+                bio
+                photo {
+                  url
+                }
+              }
+              createdAt
+              slug
+              tittle
+              excerpt
+              featuredPost
+              image {
+                url
+              }
+              categories {
+                category
+                slug
+              }
+            }
+          }
+        }
+      }
+    `;
+  
+    const result = await request(graphqlAPI, query, { slug });
+  
+    return result.postsConnection.edges;
+  };
+  
+  
+
   

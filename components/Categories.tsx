@@ -24,7 +24,7 @@ function Categories() {
       <div>
         {categories.map((category: any) =>(
             <div key={category.slug} className='p-2 text-base text-gray-700'>
-                <Link href={category.slug}>
+                <Link href={`/categories/${category.slug}`}>
                   {category.category}
                 </Link>
             </div> 

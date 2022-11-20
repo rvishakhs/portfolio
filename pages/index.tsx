@@ -16,7 +16,7 @@ interface Props {
 
 
 
-const Home: NextPage = ({posts}:Props) => {
+const Home = ({posts}:Props) => {
 
 
   console.log(posts);
@@ -39,7 +39,7 @@ const Home: NextPage = ({posts}:Props) => {
         </div>
         <div className='lg:col-span-4 col-span-1 gap-y-2'>
             <div className='lg:sticky relative top-8'>
-              <Postwidget  />
+              <Postwidget categories={''} slug={undefined}  />
               <Categories />
             </div>
         </div>
@@ -56,4 +56,5 @@ export async function getStaticProps() {
   return {
     props: {posts}
   }
+  
 }

@@ -25,11 +25,9 @@ function Header() {
 
             <div className='hidden md:inline '>
                 {categories.map(category => (
-                    <Link key={category.slug} href={category.slug}>
                         <span className=' mt-2 align-middle text-black ml-4 cursor-pointer'>
                             {category.name}    
                         </span>
-                    </Link>
                 ))}
 
 
